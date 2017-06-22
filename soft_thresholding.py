@@ -21,6 +21,7 @@ while (len(sorted_list) > 1):
         sorted_list = sorted_list[:max_candidates]
         break
 
+    # Stop iterating if the exit conditions for the distribution are met
     if (abs(mean - median) < 0.1 * max(mean, median)) & (std < 0.5 * mean):
         if len(sorted_list) <= max_candidates:
             break
