@@ -2,13 +2,13 @@
 
 This describes one way to use soft-thresholding to select the statistically best candidates from a sorted list. This algorithm was introduced to me as an alternative to setting a hard threshold, i.e. selecting a fixed number of the best candidates. Using an iterative soft-thresholding algorithm a variable number of candidates can be selected depending on the distribution of the values.
 
-In the following example the best candidates are selected from a sorted list. Setting a hard threshold of three will of course always select the top three candidates. However, it's clear from looking at the distribution of the values that only the top two could be considered as candidates. This soft-thresholding algorithm allows us to select just those candidates.
+In the following example the best candidates are selected from a sorted list. Setting a hard threshold of three will of course always select the top three candidates. However, it is clear from looking at the distribution of the values that only the top two could be considered as candidates. This soft-thresholding algorithm allows us to select just those candidates.
 
 ![HardVsSoftThresholding](/images/hard-vs-soft-thresholding.png?raw=true)
 
 ## How the algorithm works
 
-In each iteration the algorithm compares the mean and the median for the values remaining in the list. Any values higher than the minimum of the mean and median are discarded. The process is repeated until exit conditions are satisfied or until there is only one value remaining.
+In each iteration the algorithm compares the mean and the median of the values remaining in the list. Any values higher than the minimum of the mean and median are discarded. The process is repeated until exit conditions are satisfied or until there is only one value remaining.
 
 ![CompareMeanMedian](/images/compare-mean-median.png?raw=true)
 
@@ -52,7 +52,7 @@ Selected candidates: [2, 3, 4]
 
 ## Fine tuning
 
-The maximum number of candidates that can be selected can be modified in the sample code. The output of the algorithm will be any number of candidates up to this value.
+The maximum number of candidates can be modified in the sample code. The output of the algorithm will be any number of candidates up to this value.
 ```python
 max_candidates = 3
 ```
