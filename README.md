@@ -52,6 +52,11 @@ Selected candidates: [2, 3, 4]
 
 # Fine tuning
 
+The maximum number of candidates that can be selected can be modified in the sample code. The output of the algorithm will be any number of candidates up to this value.
+```python
+max_candidates = 3
+```
+
 The algorithm will continue to iterate until the exit conditions are satisfied. These can be fine tuned to be less or more sensitive. In general, if the candidates are very close in value then we want to stop iterating because all of them will be good potential candidates. If the distribution is sparse then we want to keep iterating.
 
 These are the exit conditions for asymmetrical and symmetrical distributions in the sample code.
