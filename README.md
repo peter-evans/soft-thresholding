@@ -4,3 +4,4 @@ This describes one way to use soft-thresholding to select the statistically best
 
 In the following example, the best candidates are selected from a sorted list. Setting a hard threshold of three will of course always select the top three candidates. However, it's clear from looking at the distribution of the values that only the top two should be considered as candidates. This soft-thresholding algorithm allows us to select just those candidates.
 
+![HardVsSoftThresholding](/images/hard-vs-soft-thresholding.png?raw=true)
