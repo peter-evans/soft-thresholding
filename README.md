@@ -6,7 +6,7 @@ In the following example the best candidates are selected from a sorted list. Se
 
 ![HardVsSoftThresholding](/images/hard-vs-soft-thresholding.png?raw=true)
 
-# How the algorthim works
+# How the algorithm works
 
 In each iteration the algorithm compares the mean and the median for the values remaining in the list. Any values higher than the minimum of the mean and median are discarded. The process is repeated until exit conditions are satisfied or until there is only one value remaining.
 
