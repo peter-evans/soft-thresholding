@@ -6,13 +6,13 @@ In the following example the best candidates are selected from a sorted list. Se
 
 ![HardVsSoftThresholding](/images/hard-vs-soft-thresholding.png?raw=true)
 
-# How the algorithm works
+## How the algorithm works
 
 In each iteration the algorithm compares the mean and the median for the values remaining in the list. Any values higher than the minimum of the mean and median are discarded. The process is repeated until exit conditions are satisfied or until there is only one value remaining.
 
 ![CompareMeanMedian](/images/compare-mean-median.png?raw=true)
 
-# Sample code
+## Sample code
 
 The sample python code [here](soft_thresholding.py) is a simple example to demonstrate how iterative soft-thresholding can be implemented. The sorted list values are randomly generated on each execution of the script. Executing a number of times shows how the number of selected candidates varies based on the distribution.
 
@@ -50,7 +50,7 @@ Remaining candidates: 3
 Selected candidates: [2, 3, 4]
 ```
 
-# Fine tuning
+## Fine tuning
 
 The maximum number of candidates that can be selected can be modified in the sample code. The output of the algorithm will be any number of candidates up to this value.
 ```python
