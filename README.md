@@ -2,7 +2,7 @@
 
 This describes one way to use soft-thresholding to select the statistically best candidates from a sorted list. This algorithm was introduced to me as an alternative to setting a hard threshold, i.e. selecting a fixed number of the best candidates. Using an iterative soft-thresholding algorithm a variable number of candidates can be selected depending on the distribution of the values.
 
-In the following example the best candidates are selected from a sorted list. Setting a hard threshold of three will of course always select the top three candidates. However, it's clear from looking at the distribution of the values that only the top two should be considered as candidates. This soft-thresholding algorithm allows us to select just those candidates.
+In the following example the best candidates are selected from a sorted list. Setting a hard threshold of three will of course always select the top three candidates. However, it's clear from looking at the distribution of the values that only the top two could be considered as candidates. This soft-thresholding algorithm allows us to select just those candidates.
 
 ![HardVsSoftThresholding](/images/hard-vs-soft-thresholding.png?raw=true)
 
@@ -14,7 +14,7 @@ In each iteration the algorithm compares the mean and the median for the values 
 
 # Sample code
 
-The sample python code [here](soft_thresholding.py) is a simple example to demonstrate how iterative soft-thresholding can be implemented. The sorted list values are randomly generated on each execution of the script. Executing the script a number of times shows how the number of selected candidates varies based on the distribution.
+The sample python code [here](soft_thresholding.py) is a simple example to demonstrate how iterative soft-thresholding can be implemented. The sorted list values are randomly generated on each execution of the script. Executing a number of times shows how the number of selected candidates varies based on the distribution.
 
 One candidate is selected:
 ```bash
@@ -30,14 +30,13 @@ Selected candidates: [2]
 Two candidates are selected:
 ```bash
 ~$ python soft_thresholding.py
-Sorted list of candidates: [1, 1, 2, 3, 4, 7, 8, 10, 14, 16, 17, 26, 29, 39, 44, 45, 50, 58, 61, 68, 77, 81, 96, 99, 99]
+Sorted list of candidates: [1, 2, 11, 12, 12, 27, 32, 34, 35, 37, 38, 44, 46, 48, 50, 59, 60, 60, 62, 71, 71, 75, 77, 80, 91]
 Remaining candidates: 25
-Remaining candidates: 13
-Remaining candidates: 7
-Remaining candidates: 4
+Remaining candidates: 12
+Remaining candidates: 5
 Remaining candidates: 2
 ========================
-Selected candidates: [1, 1]
+Selected candidates: [1, 2]
 ```
 Three candidates are selected:
 ```bash
@@ -53,7 +52,16 @@ Selected candidates: [2, 3, 4]
 
 # Fine tuning
 
+The algorithm will continue to iterate until the exit conditions are satisfied. These can be fine tuned to be less or more sensitive. In general, if the candidates are very close in value then we want to stop iterating because all of them will be good potential candidates. If the distribution is sparse then we want to keep iterating.
 
+These are the exit conditions for asymmetrical and symmetrical distributions in the sample code.
+```python
+abs(mean - median) < 0.1 * max(mean, median)
+```
+```python
+std < 0.5 * mean
+```
+The fixed values of `0.1` and `0.5` allow the algorithm to be tuned. Decreasing these values will make the exit condition less sensitive and the algorithm will keep iterating. Increasing the value will cause the algorithm to exit sooner.
 
 ## License
 
