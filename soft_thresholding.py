@@ -5,11 +5,11 @@ import numpy.random as npr
 max_candidates = 3
 # The sorted list
 sorted_list = sorted(npr.random_integers(1, 100, size=25))
-print "Sorted list of candidates:", sorted_list
+print("Sorted list of candidates:", sorted_list)
 
-while (len(sorted_list) > 1):
+while len(sorted_list) > 1:
     # Output remaining candidates
-    print "Remaining candidates:", len(sorted_list)
+    print("Remaining candidates:", len(sorted_list))
 
     # Calculate the mean, median and standard deviation of the list
     mean = np.mean(sorted_list)
@@ -17,7 +17,7 @@ while (len(sorted_list) > 1):
     std = np.std(sorted_list)
 
     # If the standard deviation is zero the list values are identical
-    if (std == 0):
+    if std == 0:
         sorted_list = sorted_list[:max_candidates]
         break
 
@@ -31,5 +31,5 @@ while (len(sorted_list) > 1):
 
 
 # Results after soft threshold iterations
-print "=" * 24
-print "Selected candidates:", sorted_list
+print("=" * 24)
+print("Selected candidates:", sorted_list)
