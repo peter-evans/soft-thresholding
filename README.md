@@ -1,4 +1,4 @@
-# Candidate Selection using Iterative Soft-Thresholding
+# Candidate Selection using Iterative Soft-Thresholding [<img align="right" alt="The blog of Peter Evans: Candidate Selection Using Iterative Soft-Thresholding" title="View blog post" src="https://peterevans.dev/img/blog-published-badge.svg">](https://peterevans.dev/posts/candidate-selection-using-iterative-soft-thresholding/)
 
 This describes one way to use soft-thresholding to select the statistically best candidates from a sorted list. This algorithm was introduced to me as an alternative to setting a hard threshold, i.e. selecting a fixed number of the best candidates. Using an iterative soft-thresholding algorithm a variable number of candidates can be selected depending on the distribution of the values.
 
